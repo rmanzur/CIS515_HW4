@@ -1,0 +1,589 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts,amssymb,amsmath}
+%\documentstyle[12pt,amsfonts]{article}
+%\documentstyle{article}
+
+\setlength{\topmargin}{-.5in}
+\setlength{\oddsidemargin}{0 in}
+\setlength{\evensidemargin}{0 in}
+\setlength{\textwidth}{6.5truein}
+\setlength{\textheight}{8.5truein}
+\setcounter{MaxMatrixCols}{15}
+%\input ../basicmath/basicmathmac.tex
+%
+%\input ../adgeomcs/lamacb.tex
+\input mac-new.tex
+\input mathmac-v2.tex
+%\input ../adgeomcs/mac.tex
+%\input ../adgeomcs/mathmac.tex
+
+\def\fseq#1#2{(#1_{#2})_{#2\geq 1}}
+\def\fsseq#1#2#3{(#1_{#3(#2)})_{#2\geq 1}}
+\def\qleq{\sqsubseteq}
+
+%
+\begin{document}
+\begin{center}
+\fbox{{\Large\bf Fall,  2016 \hspace*{0.4cm} CIS 515}}\\
+\vspace{1cm}
+{\Large\bf Fundamentals of Linear Algebra and Optimization\\
+Jean Gallier \\
+\vspace{0.5cm}
+Homework 4}\\[10pt]
+October 27, 2016; Due November 8, 2016, beginning of class\\
+\end{center}
+
+
+\vspace {0.25cm}\noindent
+{\bf Problem B1 (50 pts).}
+(1)
+Prove that the dimension of the subspace of $2\times 2$ matrices
+$A$, such that the sum of the entries of every row is the same (say $c_1$)
+and the sum of entries of every column is the same (say $c_2$) is $2$.\\
+(1)Let's define matrix A as : $\begin{pmatrix}
+a_{11} & a_{12} \\a_{21} & a_{22}
+\end{pmatrix}$ Then, we get: $a_{11} + a_{12} = c_1 = a_{21} + a_{22}$ and $a_{11} + a_{21} = c_2 = a_{12} + a_{22}$. We can rewrite the equations as:
+\begin{equation}
+a_{11} + a_{12} - a_{21} -a_{22} = 0
+\end{equation}
+\begin{equation}
+a_{11} + a_{21} - a_{12} - a_{22} = 0
+\end{equation}
+From part d of the duality theorem (3.14), we know that $$dim(U) + dim(U^0) = dim(E)$$
+$dim(E)$ is $n^2$ or 4 and $dim(U)$ is $2(n-1)$ or 2 since there are two linearly indepedent equations. Then, $dim(U^0)$ is $4 - 2 = 2$.  
+
+\medskip
+(2)
+Prove that the dimension of the subspace of $2\times 2$ matrices
+$A$, such that the sum of the entries of every row is the same (say $c_1$),
+the sum of entries of every column is the same (say $c_2$), and $c_1 =
+c_2$, is also  $2$.
+Prove that every such matrix is of the form
+\[
+\begin{pmatrix}
+a & b  \\
+b & a 
+\end{pmatrix},
+\]
+and give a basis for this subspace.\\
+The equations corresponding to the three conditions listed (sum of entries in each row are the same, sum of entries in each column are the same, $c_1 = c_2$) are the following:
+\begin{equation}
+a_{11} + a_{12} - a_{21} - a_{22} = 0
+\end{equation}
+\begin{equation}
+a_{11} + a_{21} - a_{12} - a_{22} = 0
+\end{equation}
+\begin{equation}
+a_{12} - a_{21}  = 0
+\end{equation}
+\begin{equation}
+a_{11} - a_{22} = 0
+\end{equation}
+\begin{equation}
+a_{22} - a_{11} = 0
+\end{equation}
+\begin{equation}
+a_{21} - a_{12} = 0
+\end{equation}
+
+It is clear that only the first two equations are linearly independent so $dim(U)=2$ and the dimension of the subspace of $2 \times 2$ matrices is still 2 as it is in section (1) of this problem.
+
+From equations (5) and (6), we get that every such matrix is of the form $\begin{pmatrix}
+a & b \\ b& a
+\end{pmatrix}$ and a basis for the subspace consists of 4 matrices which are $\begin{pmatrix}
+a & 0 \\ 0& 0
+\end{pmatrix}$ $\begin{pmatrix}
+0 & b \\ 0& 0
+\end{pmatrix}$
+$\begin{pmatrix}
+0 & 0 \\ b& 0
+\end{pmatrix}$
+$\begin{pmatrix}
+0 & 0 \\ 0& a
+\end{pmatrix}$
+
+
+
+\medskip
+(3)
+Prove that the dimension of the subspace of $3\times 3$ matrices
+$A$, such that the sum of the entries of every row is the same (say $c_1$),
+the sum of entries of every column is the same (say $c_2$), and $c_1 =
+c_2$, is  $5$. Begin by showing that the above constraints are given by
+the set of equations
+\[
+\begin{pmatrix}
+1 & 1 &  1 &  -1 & -1  & -1 & 0 & 0 & 0\\
+0  &  0  &  0 & 1 & 1 &  1 &  -1 & -1  & -1  \\
+1  &  -1  &  0 & 1 & -1  &  0 &  1 &  -1  &  0 \\
+0  &  1  &  -1 & 0 &  1  &  -1 &  0 &  1  &  -1 \\
+0  &  1  &  1 & -1 &  0  &  0 &  -1 &  0  &  0 \\
+\end{pmatrix}
+\begin{pmatrix}
+a_{1 1} \\
+a_{1 2} \\
+a_{1 3} \\
+a_{2 1} \\
+a_{2 2 }  \\
+a_{2 3 }  \\
+a_{3 1 }  \\
+a_{3 2 }  \\
+a_{3 3 }  \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+0\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix} .
+\]
+Prove that every  matrix satisfying the above constraints is of the form
+\[
+\begin{pmatrix}
+a + b - c   & -a + c + e & -b + c + d  \\
+-a -b + c + d + e & a    & b  \\
+c  & d  & e 
+\end{pmatrix},
+\]
+with $a, b, c, d, e\in \reals$.
+Find a basis for this subspace. (Use the method to find a basis for the
+kernel of a matrix).\\
+
+Using the duality theorem again, we get: $n^2 - 2(n -1) = 9 - 2(3 -1) = 5$ as the dimension of the subspace of the matrices A. The set of equations are given as 
+
+\[
+\begin{pmatrix}
+1 & 1 &  1 &  -1 & -1  & -1 & 0 & 0 & 0\\
+0  &  0  &  0 & 1 & 1 &  1 &  -1 & -1  & -1  \\
+1  &  -1  &  0 & 1 & -1  &  0 &  1 &  -1  &  0 \\
+0  &  1  &  -1 & 0 &  1  &  -1 &  0 &  1  &  -1 \\
+0  &  1  &  1 & -1 &  0  &  0 &  -1 &  0  &  0 \\
+\end{pmatrix}
+\begin{pmatrix}
+a_{1 1} \\
+a_{1 2} \\
+a_{1 3} \\
+a_{2 1} \\
+a_{2 2 }  \\
+a_{2 3 }  \\
+a_{3 1 }  \\
+a_{3 2 }  \\
+a_{3 3 }  \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+0\\
+0\\
+0\\
+0\\
+0
+\end{pmatrix} .
+\]
+For example, by looking at the equation corresponding to the first row, we have: $a_{11} + a_{12} + a_{13} = c_1$ and $a_{21} + a_{22} + a_{23} = c_1$ so $a_{11} + a_{12} + a_{13} -a_{21} - a_{22} - a_{23} = 0$. The same reasoning applies for all 5 of the equations represented by the matrix. \\In rref , the matrix becomes:
+\[ 
+\begin{pmatrix}
+1 & 0 &  0 &  0 & -1  & -1 & 1 & 0 & 0\\
+0  &  1  &  0 & 0 & 1 &  0 &  -1 & 0  & -1  \\
+0  &  0  &  1 & 0 & 0  &  1 &  -1 &  -1  &  0 \\
+0  &  0  &  0 & 1 &  1  &  1 &  -1 &  -1  &  -1 \\
+0  &  0  &  0 & 0 &  0  &  0 &  0 &  0  &  0 \\
+\end{pmatrix}\] which shows 4 linearly independent equations corresponding to the $2(n-1)$ term in $n^2 - 2(n -1)$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\vspace {0.25cm}\noindent
+{\bf Problem B2 (10 pts).}
+If $A$ is an $n\times n$ symmetric matrix and $B$ is any 
+$n\times n$ invertible matrix, prove that $A$ is positive definite
+iff $\transpos{B} A B$ is positive definite.
+
+
+
+\vspace {0.25cm}\noindent
+{\bf Problem B3 (100 pts).}
+(1)
+Let $A$ be any invertible $2\times 2$ matrix
+\[
+A = 
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}.
+\]
+Prove that there is an invertible matrix $S$ such that
+\[
+SA = 
+\begin{pmatrix}
+1 & 0 \\
+0 & ad - bc
+\end{pmatrix},
+\]
+where $S$ is the product of at most four elementary matrices
+of the form $E_{i, j; \beta}$.
+
+\medskip
+Conclude that every matrix $A$ in $\mathbf{SL}(2)$ 
+(the group of invertible $2\times 2$ matrices $A$ with
+$\det(A) = +1$)  is the product of
+at most four elementary matrices
+of the form $E_{i, j; \beta}$.
+
+\medskip
+For any $a\not= 0, 1$, give an explicit factorization as above for
+\[
+A = 
+\begin{pmatrix}
+a & 0 \\
+0 & a^{-1}
+\end{pmatrix}.
+\]
+What is this decomposition for $a = -1$?
+
+\medskip
+(2)
+Recall that a rotation matrix $R$ (a member of the group
+$\mathbf{SO}(2)$)  is a matrix of the form
+\[
+R = 
+\begin{pmatrix}
+\cos\theta & -\sin\theta \\
+\sin\theta & \cos\theta
+\end{pmatrix}.
+\]
+Prove that if $\theta \not= k \pi$ (with $k \in \integs$), 
+any rotation matrix can be written as a product 
+\[
+R = U L U,
+\] 
+where $U$ is upper triangular and $L$ is lower triangular 
+of the form
+\[
+U = 
+\begin{pmatrix}
+1 & u \\
+0 & 1
+\end{pmatrix},
+\quad
+L = 
+\begin{pmatrix}
+1 & 0 \\
+v & 1
+\end{pmatrix}.
+\]
+
+\medskip
+Therefore, every plane rotation (except a flip about the origin when 
+$\theta = \pi$) can be written as the composition of three
+shear transformations!
+
+\medskip
+(3)
+Recall that $E_{i, d}$ is  the diagonal matrix
+\[
+E_{i, d} = \mathrm{diag}(1,\ldots, 1, d, 1, \ldots,  1),
+\]
+whose diagonal entries are all $+1$, except the $(i, i)$th entry which
+is equal to $d$.
+
+\medskip
+Given any $n\times n$ matrix $A$, for any pair $(i, j)$ of distinct
+row indices ($1 \leq i, j \leq n$), 
+prove that there exist two elementary matrices $E_1(i,j)$ and $E_2(i,j)$
+of the form $E_{k,\ell; \beta}$, 
+such that
+\[
+E_{j,-1} E_1(i,j)E_2(i,j)E_1(i,j) A = P(i, j) A,
+\]
+the matrix obtained from the matrix $A$ by permuting row $i$ and row $j$.
+Equivalently, we have
+\[
+ E_1(i,j)E_2(i,j)E_1(i,j) A = E_{j,-1}P(i, j) A,
+\]
+the matrix obtained from $A$ by permuting row $i$ and row $j$ and
+multiplying row $j$ by $-1$.
+
+\medskip
+Prove that for every $i = 2, \ldots, n$, there exist four elementary matrices
+$E_3(i,d), E_4(i,d)$, $E_5(i,d), E_6(i,d)$  of the form $E_{k,\ell; \beta}$, 
+such that
+\[
+E_6(i,d)E_5(i,d)E_4(i,d)E_3(i,d) E_{n,d} = E_{i, d}.
+\]
+
+What happens when $d = -1$, that is, what kind of simplifications occur?
+
+
+\medskip
+Prove that all permutation matrices can be written as products
+of elementary operations of the form  $E_{k,\ell; \beta}$ 
+and the operation $E_{n, -1}$.
+
+\medskip
+(4)
+Prove that for every invertible $n\times n$ matrix $A$, there is
+a matrix $S$ such that
+\[
+S A = 
+\begin{pmatrix}
+I_{n - 1} & 0 \\
+0 & d
+\end{pmatrix}
+= E_{n, d},
+\]
+with $d = \det(A)$, and where $S$ is a product of elementary 
+matrices of the form  $E_{k,\ell; \beta}$.
+
+\medskip
+In particular,every matrix in $\mathbf{SL}(n)$
+(the group of invertible $n\times n$ matrices $A$ with
+$\det(A) = +1$) can be written as a product of
+elementary 
+matrices of the form  $E_{k,\ell; \beta}$.
+Prove that at most $n(n + 1) - 2$ such transformations are needed.
+
+\vspace {0.25cm}\noindent
+{\bf Extra Credit (20 points).}
+Prove that every matrix in $\mathbf{SL}(n)$
+can be written as a product of at most
+$(n  - 1)(\max\{n, 3\} + 1)$
+elementary   matrices of the form  $E_{k,\ell; \beta}$.
+
+
+\vspace {0.25cm}\noindent
+{\bf Problem B4 (50 pts).}
+A matrix, $A$, is called {\it strictly column diagonally dominant\/}
+iff
+\[
+|a_{j\, j}| > \sum_{i = 1,\, i\not= j}^{n} |a_{i\, j}|,
+\quad\hbox{for $j = 1, \ldots, n$}
+\]
+
+Prove that if $A$ is  strictly column diagonally dominant, then
+Gaussian elimination with partial pivoting does not require pivoting, and 
+$A$ is invertible.
+
+
+
+\vspace {0.25cm}\noindent
+{\bf Problem B5 (40 pts).}
+Let $(\alpha_1, \ldots, \alpha_{m + 1})$ be a sequence of pairwise distinct
+scalars in $\reals$ and let $(\beta_1, \ldots, \beta_{m + 1})$ be any 
+sequence of scalars in $\reals$, not necessarily distinct.
+
+\medskip
+(1)
+Prove that there is a unique polynomial $P$ of degree at most $m$
+such that
+\[
+P(\alpha_i) = \beta_i, \quad 1\leq i \leq m + 1. 
+\]
+
+\medskip
+\hint
+Remember Vandermonde!
+
+\medskip
+(2)
+Let $L_i(X)$ be the polynomial of degree $m$ given by
+\[
+L_i(X) = \frac{(X - \alpha_1)\cdots (X - \alpha_{i - 1}) (X - \alpha_{i + 1})
+\cdots (X - \alpha_{m + 1})}
+  {(\alpha_i - \alpha_1)\cdots (\alpha_i - \alpha_{i - 1}) 
+(\alpha_i - \alpha_{i + 1}) \cdots (\alpha_i - \alpha_{m + 1})},
+\quad 1 \leq i \leq m + 1.
+\]
+
+The polynomials $L_i(X)$ are known as 
+{\it Lagrange polynomial interpolants\/}.
+Prove that
+\[
+L_i(\alpha_j) = \delta_{i\, j} \quad 1\leq i, j \leq m + 1.
+\]
+Prove that
+\[
+P(X) = \beta_1L_1(X) + \cdots + \beta_{m + 1} L_{m + 1}(X)
+\]
+is the unique polynomial of degree at most $m$ such that
+\[
+P(\alpha_i) = \beta_i, \quad 1\leq i \leq m + 1. 
+\]
+
+\medskip
+(3)
+Prove that $L_1(X), \dots, L_{m + 1}(X)$ are lineary independent, and that
+they form a basis of all polynomials of degree at most $m$.
+
+\medskip
+How is $1$ (the constant polynomial $1$)
+expressed over the basis $(L_1(X), \dots, L_{m + 1}(X))$?
+
+\medskip
+Give the expression of every polynomial $P(X)$ of degree at most $m$ over
+the basis $(L_1(X), \dots, L_{m + 1}(X))$.
+
+\medskip
+(4)
+Prove that the dual basis $(L_1^*, \dots, L_{m + 1}^*)$
+of the basis $(L_1(X), \dots, L_{m + 1}(X))$ consists of the linear forms
+$L_i^*$ given by
+\[
+L_i^*(P) = P(\alpha_i),
+\]
+for every polynomial $P$ of degree at most $m$;
+this is simply {\it evaluation at $\alpha_i$\/}.
+
+\vspace {0.25cm}\noindent
+{\bf Problem B6 (60 pts).}
+(a)
+Find a lower triangular matrix $E$ such that
+\[
+E 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+1 & 1 & 0 & 0 \\
+1 & 2 & 1 & 0 \\
+1 & 3 & 3 & 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 1 & 1 & 0 \\
+0 & 1 & 2 & 1 
+\end{pmatrix}.
+\]
+
+\medskip
+(b)
+What is the effect of the product (on the left) with
+\[
+E_{4, 3; -1} E_{3, 2; -1} E_{4, 3; -1} E_{2, 1; -1} E_{3, 2; -1} E_{4, 3; -1}
+\]
+on the matrix 
+\[
+Pa_3 = 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+1 & 1 & 0 & 0 \\
+1 & 2 & 1 & 0 \\
+1 & 3 & 3 & 1
+\end{pmatrix}.
+\]
+
+\medskip
+(c)
+Find the inverse of the matrix $Pa_3$.
+
+\medskip
+(d)
+Consider the $(n+1)\times (n+1)$ Pascal matrix $Pa_{n}$
+whose $i$th row is given by the binomial coefficients
+\[
+\binom{i-1}{j-1},
+\]
+with $1 \leq i \leq n + 1$, $1 \leq j \leq n + 1$,
+and with the usual convention that
+\[
+\binom{0}{0} = 1, \quad \binom{i}{j} = 0 
+\quad\hbox{if}\quad j > i.
+\]
+The matrix $Pa_3$ is shown in question (c) and $Pa_4$ is shown below:
+\[
+Pa_4 = 
+\begin{pmatrix}
+1 & 0 & 0 & 0 & 0\\
+1 & 1 & 0 & 0 & 0 \\
+1 & 2 & 1 & 0 & 0 \\
+1 & 3 & 3 & 1 & 0 \\
+1 & 4 & 6 & 4 & 1
+\end{pmatrix}.
+\]
+
+Find $n$ elementary matrices $E_{i_k, j_k; \beta_k}$ such that
+\[
+E_{i_n, j_n; \beta_n} \cdots E_{i_1, j_1; \beta_1} Pa_n = 
+\begin{pmatrix}
+1 & 0 \\
+0 & Pa_{n - 1}
+\end{pmatrix}.
+\]
+
+Use the above to prove that the inverse of $Pa_n$ is the lower
+triangular matrix whose $i$th row is given by the signed binomial
+coefficients
+\[
+(-1)^{i + j - 2}\binom{i-1}{j-1},
+\]
+with $1 \leq i \leq n + 1$, $1 \leq j \leq n + 1$.
+For example,
+\[
+Pa_4^{-1} = 
+\begin{pmatrix}
+1 & 0 & 0 & 0 & 0\\
+-1 & 1 & 0 & 0 & 0 \\
+1 & -2 & 1 & 0 & 0 \\
+-1 & 3 & -3 & 1 & 0 \\
+1 & -4 & 6 & -4 & 1
+\end{pmatrix}.
+\]
+
+\hint
+Given any $n\times n$ matrix $A$, 
+multiplying $A$ by the elementary matrix
+$E_{i, j; \beta}$ {\it on the right\/} yields
+the matrix $AE_{i, j; \beta}$ in which $\beta$ times the  $i$th column is
+added to the $j$th column.
+
+
+
+\vspace {0.25cm}\noindent
+{\bf Problem B7 (30 pts).}
+Given any two subspaces $V_1, V_2$ of a finite-dimensional
+vector space $E$,
+prove that
+\begin{align*}
+(V_1 + V_2)^{0} & = V_1^0\cap V_2^0 \\
+(V_1 \cap V_2)^{0}& = V_1^0 +  V_2^0.
+\end{align*}
+
+Beware that in the second equation, $V_1$ and $V_2$ are subspaces of
+$E$, not $E^*$.
+
+\medskip\noindent
+{\it Hint\/}. To prove the second equation, prove the inclusions
+$V_1^0 +  V_2^0 \subseteq (V_1 \cap V_2)^{0}$ and
+$(V_1 \cap V_2)^{0} \subseteq  V_1^0 +  V_2^0$.
+Proving the second inclusion is a little tricky. First, prove that
+we can pick a subspace $W_1$ of $V_1$ and a
+subspace $W_2$ of $V_2$ such that 
+\begin{enumerate}
+\item
+$V_1$ is the direct sum
+$V_1 = (V_1\cap V_2) \oplus W_1$.
+\item 
+$V_2$ is the direct sum
+$V_2 = (V_1\cap V_2) \oplus W_2$.
+\item
+$V_1 + V_2$ is the direct sum
+$V_1 + V_2 = (V_1 \cap V_2) \oplus W_1\oplus W_2$.
+\end{enumerate}
+
+
+
+\vspace{0.5cm}\noindent
+{\bf TOTAL: 340 + 20  points.}
+
+\end{document}
