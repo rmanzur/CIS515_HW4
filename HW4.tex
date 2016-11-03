@@ -190,18 +190,18 @@ For example, by looking at the equation corresponding to the first row, we have:
 0  &  0  &  0 & 1 &  1  &  1 &  -1 &  -1  &  -1 \\
 0  &  0  &  0 & 0 &  0  &  0 &  0 &  0  &  0 \\
 \end{pmatrix}\] which shows 4 linearly independent equations corresponding to the $2(n-1)$ term in $n^2 - 2(n -1)$.
+We can find a basis for the kernel of this matrix by applying the algorithm from the notes. So then,
+$$BK = \begin {pmatrix} 1 & 1 & -1 & 0 & 0\\ -1 & 0 & 1 & 0 & 1\\ 0 & -1 & 1 & 1 & 0\\ -1 & -1 & 1 & 1 & 1\\1 & 0 & 0 & 0 & 0\\
+ 0 & 1 & 0 & 0 & 0\\ 0 & 0 & 1 & 0 & 0\\ 0 & 0 & 0 & 1 & 0\\  0 & 0 & 0 & 0 & 1 \end{pmatrix}$$
 
 
-
-
-
-
-
-
-
-
-
-
+We arrive at 5 matrices that form the basis which are:
+$$M_1 = \begin{pmatrix} 1 & -1 & 0 \\ -1 & 1 & 0\\ 0 & 0 & 0 \end{pmatrix} \\
+M_2 = \begin{pmatrix} 1 & 0 & -1 \\ -1 & 0 & 1\\ 0 & 0 & 0 \end{pmatrix} \\
+M_3 = \begin{pmatrix} -1 & 1 & 1 \\ 1 & 0 & 0\\ 0 & 0 & 0 \end{pmatrix}\\
+M_4 = \begin{pmatrix} 0 & 0 & 1 \\ 1 & 0 & 0\\ 0 & 0 & 0 \end{pmatrix}\\
+M_5 = \begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 0\\ 0 & 0 & 0 \end{pmatrix}\\
+$$
 
 
 \vspace {0.25cm}\noindent
