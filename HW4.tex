@@ -194,38 +194,19 @@ $$BK = \begin {pmatrix} 1 & 1 & -1 & 0 & 0\\ -1 & 0 & 1 & 0 & 1\\ 0 & -1 & 1 & 1
 We arrive at 5 matrices that form the basis which are:
 $$M_1 = \begin{pmatrix} 1 & -1 & 0 \\ -1 & 1 & 0\\ 0 & 0 & 0 \end{pmatrix} \\
 M_2 = \begin{pmatrix} 1 & 0 & -1 \\ -1 & 0 & 1\\ 0 & 0 & 0 \end{pmatrix} \\
-M_3 = \begin{pmatrix} -1 & 1 & 1 \\ 1 & 0 & 0\\ 1 & 0 & 0 \end{pmatrix}\\
-M_4 = \begin{pmatrix} 0 & 0 & 1 \\ 1 & 0 & 0\\ 0 & 1 & 0 \end{pmatrix}\\
-M_5 = \begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 0\\ 0 & 0 & 1 \end{pmatrix}\\
+M_3 = \begin{pmatrix} -1 & 1 & 1 \\ 1 & 0 & 0\\ 0 & 0 & 0 \end{pmatrix}\\
+M_4 = \begin{pmatrix} 0 & 0 & 1 \\ 1 & 0 & 0\\ 0 & 0 & 0 \end{pmatrix}\\
+M_5 = \begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 0\\ 0 & 0 & 0 \end{pmatrix}\\
 $$
 
 
 \vspace {0.25cm}\noindent
-<<<<<<< HEAD
 {\bf Problem B2 (10 pts).} \\
 Because $A$ is symmetric and positive definite then $\forall x \neq 0, \; x^\top (B^\top A B) x = (Bx)^\top A (Bx)$, since $B$ is invertible then $Bx \neq 0$, thus it comes $(Bx)^\top A (Bx) > 0$, which means $B^\top A B$ is also positive definite.\\
 Conversely, when $B^\top A B$ is positive definite, then it can be written as $B^\top A B = D D^\top \Rightarrow A = (B^\top)^{-1} D ((B^\top)^{-1} D )^\top$. Since $B$ is invertible then $ (B^\top)^{-1} D$ is also invertible  ,which means that $A$ is positive definite.
-=======
-{\bf Problem B2 (10 pts).}
-If $A$ is an $n\times n$ symmetric matrix and $B$ is any 
-$n\times n$ invertible matrix, prove that $A$ is positive definite
-iff $\transpos{B} A B$ is positive definite.
-\\
-
-Assume $\transpos{B} A B$ is positive definite which means that: $\transpos{x}\transpos{B}AB>0$.
-\begin{equation*}
-(\transpos{x}\transpos{B})ABx>0
-\end{equation*}
-\begin{equation*}
-(Bx)^TA(Bx)>0
-\end{equation*}
-Then it is clear that $\transpos{x}Ax >0$ so  
-$A$ is positive definite.
-
->>>>>>> d96fd5ebde86b3f67403582625986a815e47cbd5
 
 \vspace {0.25cm}\noindent
-{\bf Problem B3 (100 pts).}
+{\bf Problem B3 (100 pts).}\\
 (1)
 Let $A$ be any invertible $2\times 2$ matrix
 \[
@@ -463,30 +444,36 @@ First, we can use the Gaussion elimination, such that a series of elementary mat
 \end{pmatrix}$. Then apply a series of operations to it to make $a_{ij} = 0, \forall j > i, i \neq n$, such that $SA = (\prod_{i} E_{k,\ell; \beta}^{*(i)})(\prod_i E_{i, u_{ii}^{-1}})(\prod_{(i)} E_{k,\ell; \beta}^{i}) A  = \begin{pmatrix}
 I_{n - 1} & 0 \\
 0 & d
-\end{pmatrix}$, since $\det(S) \det(A) = a_{nn} \Rightarrow d = \det(A)$.
-
-
-
-Prove that for every invertible $n\times n$ matrix $A$, there is
-a matrix $S$ such that
-\[
-S A = 
+\end{pmatrix}$, since $\det(S) \det(A) = a_{nn} \Rightarrow d = \det(A)$.\\
+Write $A = \begin{pmatrix}
+\alpha_1 \\
+\vdots \\
+\alpha_n
+\end{pmatrix}$ we can use induction, \\
+when $n = 1$, we can find an entry in the first column such that $a_{i1} \neq 0$, otherwise $\det(A) = 0$, which is a contradiction. And then we use $E_{1,i, \frac{a_{11} - 1}{a_{i1}}} = 
 \begin{pmatrix}
-I_{n - 1} & 0 \\
-0 & d
-\end{pmatrix}
-= E_{n, d},
-\]
-with $d = \det(A)$, and where $S$ is a product of elementary 
-matrices of the form  $E_{k,\ell; \beta}$.
-
-\medskip
-In particular,every matrix in $\mathbf{SL}(n)$
-(the group of invertible $n\times n$ matrices $A$ with
-$\det(A) = +1$) can be written as a product of
-elementary 
-matrices of the form  $E_{k,\ell; \beta}$.
-Prove that at most $n(n + 1) - 2$ such transformations are needed.
+e_1 - \frac{a_{11} - 1}{a_{i1}}e_i\\
+\vdots \\
+e_n 
+\end{pmatrix}$, which makes the first entry $a_{11} = 1$, after a series operations such that $E_{1, j, a_{j1}} = \begin{pmatrix}
+e_1 \\
+\vdots \\
+e_j - a_{j1}e_1 \\
+\vdots \\
+e_n 
+\end{pmatrix}$, we can make the other entries $a_{i1} = 0\; \forall i \neq 1 $. These need $n$ steps, however if $a_{11}$ is the only non zero entry then we need another transportation matrix $P$ to permute the first row to some row in the first column, thus we need $n + 1$ matrices at most to get $A_1 = \begin{pmatrix}
+1 & a_{12} & \cdots & a_{1n}\\
+0 & a_{22} & \cdots & a_{2n}\\
+\vdots & \cdots & \cdots & \vdots \\
+0 & a_{n2} & \cdots & a_{nn}\\
+\end{pmatrix}$. \\
+It is the same when $n > 1$, while when we get the matrix $A_{n-1} = \begin{pmatrix}
+1 & 0 & \cdots & a_{1n}\\
+0 & 1 & \cdots & a_{2n}\\
+\vdots & \cdots & \cdots & \vdots \\
+0 & 0 & \cdots & a_{nn}\\
+\end{pmatrix}$, because $A$ is invertible, comes the result that $a_{nn} = \det(A) = 1$, thus we only need $n-1$ matrices to get $A_{n} = I$. \\
+As a conclusion, the total transformation is $(n+1)(n-1) + (n-1) = n(n+1) - 2$ at most.
 
 \vspace {0.25cm}\noindent
 {\bf Extra Credit (20 points).}
@@ -497,17 +484,48 @@ elementary   matrices of the form  $E_{k,\ell; \beta}$.
 
 
 \vspace {0.25cm}\noindent
-{\bf Problem B4 (50 pts).}
-A matrix, $A$, is called {\it strictly column diagonally dominant\/}
-iff
+{\bf Problem B4 (50 pts).} \\
+We can use the induction to show that after $k$ round Gaussian elimination, such that $ A^{*} = \begin{pmatrix}
+U & V \\
+\mathbf{0} & A^{(k)}
+\end{pmatrix}
+$, $A^{(k)}$ is strictly column diagonally dominant and it does not require pivoting.\\
+Suppose $A = \begin{pmatrix}
+\alpha & u \\
+v & B
+\end{pmatrix}$,\\
+When $k = 1$, there comes the Gaussian elimination which makes $A = \begin{pmatrix}
+1 & 0 \\
+\frac{v}{\alpha} & 1
+\end{pmatrix} 
+\begin{pmatrix}
+1 & u \\
+0 & B - \frac{uv}{\alpha}
+\end{pmatrix}$. Therefore $A^{(1)} = B - \frac{uv}{\alpha}$.
+We need to prove  $A^{(1)}$ is also strictly column diagonally dominant:
 \[
-|a_{j\, j}| > \sum_{i = 1,\, i\not= j}^{n} |a_{i\, j}|,
+|a_{j\, j}^{(1)}| > \sum_{i = 1,\, i\not= j}^{n} |a_{i\, j}^{(1)}|,
 \quad\hbox{for $j = 1, \ldots, n$}
 \]
+Let $a_{ij}^{(1)}$ be the $i,j$ entry of $A^{(1)}$, then \begin{align*}
+a_{ij}^{(1)} &= b_{ij} - \frac{u_{j}v_{i}}{\alpha} \\
+\sum_{i\geq 2, i\neq j}|a_{ij}^{(1)}| &= \sum_{i\geq 2, i\neq j}|b_{ij} - \frac{u_{j}v_{i}}{\alpha}| \\
+&\leq 
+\sum_{i\geq 2, i\neq j}|b_{ij}| + \frac{|u_j|}{\alpha}\sum_{i\geq 2, i\neq j} |v_i|
+\end{align*}
+Since $A$ is strictly column diagonally dominant, it follows that 
+\begin{align*}
+\sum_{i\geq 2, i\neq j}|a_{ij}^{(1)}| & <
+(|b_{jj}| - |u_{j}|) + \frac{|u_j|}{\alpha} (\alpha - |v_{j}|) \\
+&= |b_{jj}| - \frac{|u_j|}{\alpha}|v_j| \\
+&\leq |b_{jj} - \frac{u_j}{\alpha}v_j| \\
+&= |a_{jj}^{(1)}|
+\end{align*}
+Thus $A^{(1)}$ is strictly column diagonally dominant, there is no need to pivot.
+We can easily use the same way to prove that when $k > 1$, every round of Gaussian elimination leads to a 
+strictly column diagonally dominant $A^{(k)}$. \\
+Because $|a_{jj}| > \sum_{i = 1,\, i\not= j}^{n} |a_{i\, j}^{(1)}| \geq 0 \Rightarrow a_{jj} > 0$ and $\det(A) = \prod_i a_{ii}$, thus $A$ is invertible. \\
 
-Prove that if $A$ is  strictly column diagonally dominant, then
-Gaussian elimination with partial pivoting does not require pivoting, and 
-$A$ is invertible.
 
 
 
