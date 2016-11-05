@@ -194,16 +194,35 @@ $$BK = \begin {pmatrix} 1 & 1 & -1 & 0 & 0\\ -1 & 0 & 1 & 0 & 1\\ 0 & -1 & 1 & 1
 We arrive at 5 matrices that form the basis which are:
 $$M_1 = \begin{pmatrix} 1 & -1 & 0 \\ -1 & 1 & 0\\ 0 & 0 & 0 \end{pmatrix} \\
 M_2 = \begin{pmatrix} 1 & 0 & -1 \\ -1 & 0 & 1\\ 0 & 0 & 0 \end{pmatrix} \\
-M_3 = \begin{pmatrix} -1 & 1 & 1 \\ 1 & 0 & 0\\ 0 & 0 & 0 \end{pmatrix}\\
-M_4 = \begin{pmatrix} 0 & 0 & 1 \\ 1 & 0 & 0\\ 0 & 0 & 0 \end{pmatrix}\\
-M_5 = \begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 0\\ 0 & 0 & 0 \end{pmatrix}\\
+M_3 = \begin{pmatrix} -1 & 1 & 1 \\ 1 & 0 & 0\\ 1 & 0 & 0 \end{pmatrix}\\
+M_4 = \begin{pmatrix} 0 & 0 & 1 \\ 1 & 0 & 0\\ 0 & 1 & 0 \end{pmatrix}\\
+M_5 = \begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 0\\ 0 & 0 & 1 \end{pmatrix}\\
 $$
 
 
 \vspace {0.25cm}\noindent
+<<<<<<< HEAD
 {\bf Problem B2 (10 pts).} \\
 Because $A$ is symmetric and positive definite then $\forall x \neq 0, \; x^\top (B^\top A B) x = (Bx)^\top A (Bx)$, since $B$ is invertible then $Bx \neq 0$, thus it comes $(Bx)^\top A (Bx) > 0$, which means $B^\top A B$ is also positive definite.\\
 Conversely, when $B^\top A B$ is positive definite, then it can be written as $B^\top A B = D D^\top \Rightarrow A = (B^\top)^{-1} D ((B^\top)^{-1} D )^\top$. Since $B$ is invertible then $ (B^\top)^{-1} D$ is also invertible  ,which means that $A$ is positive definite.
+=======
+{\bf Problem B2 (10 pts).}
+If $A$ is an $n\times n$ symmetric matrix and $B$ is any 
+$n\times n$ invertible matrix, prove that $A$ is positive definite
+iff $\transpos{B} A B$ is positive definite.
+\\
+
+Assume $\transpos{B} A B$ is positive definite which means that: $\transpos{x}\transpos{B}AB>0$.
+\begin{equation*}
+(\transpos{x}\transpos{B})ABx>0
+\end{equation*}
+\begin{equation*}
+(Bx)^TA(Bx)>0
+\end{equation*}
+Then it is clear that $\transpos{x}Ax >0$ so  
+$A$ is positive definite.
+
+>>>>>>> d96fd5ebde86b3f67403582625986a815e47cbd5
 
 \vspace {0.25cm}\noindent
 {\bf Problem B3 (100 pts).}
