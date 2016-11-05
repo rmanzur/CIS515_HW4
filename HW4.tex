@@ -198,9 +198,9 @@ $$BK = \begin {pmatrix} 1 & 1 & -1 & 0 & 0\\ -1 & 0 & 1 & 0 & 1\\ 0 & -1 & 1 & 1
 We arrive at 5 matrices that form the basis which are:
 $$M_1 = \begin{pmatrix} 1 & -1 & 0 \\ -1 & 1 & 0\\ 0 & 0 & 0 \end{pmatrix} \\
 M_2 = \begin{pmatrix} 1 & 0 & -1 \\ -1 & 0 & 1\\ 0 & 0 & 0 \end{pmatrix} \\
-M_3 = \begin{pmatrix} -1 & 1 & 1 \\ 1 & 0 & 0\\ 0 & 0 & 0 \end{pmatrix}\\
-M_4 = \begin{pmatrix} 0 & 0 & 1 \\ 1 & 0 & 0\\ 0 & 0 & 0 \end{pmatrix}\\
-M_5 = \begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 0\\ 0 & 0 & 0 \end{pmatrix}\\
+M_3 = \begin{pmatrix} -1 & 1 & 1 \\ 1 & 0 & 0\\ 1 & 0 & 0 \end{pmatrix}\\
+M_4 = \begin{pmatrix} 0 & 0 & 1 \\ 1 & 0 & 0\\ 0 & 1 & 0 \end{pmatrix}\\
+M_5 = \begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 0\\ 0 & 0 & 1 \end{pmatrix}\\
 $$
 
 
@@ -209,7 +209,17 @@ $$
 If $A$ is an $n\times n$ symmetric matrix and $B$ is any 
 $n\times n$ invertible matrix, prove that $A$ is positive definite
 iff $\transpos{B} A B$ is positive definite.
+\\
 
+Assume $\transpos{B} A B$ is positive definite which means that: $\transpos{x}\transpos{B}AB>0$.
+\begin{equation*}
+(\transpos{x}\transpos{B})ABx>0
+\end{equation*}
+\begin{equation*}
+(Bx)^TA(Bx)>0
+\end{equation*}
+Then it is clear that $\transpos{x}Ax >0$ so  
+$A$ is positive definite.
 
 
 \vspace {0.25cm}\noindent
