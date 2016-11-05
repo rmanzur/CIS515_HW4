@@ -35,11 +35,8 @@ October 27, 2016; Due November 8, 2016, beginning of class\\
 
 
 \vspace {0.25cm}\noindent
-{\bf Problem B1 (50 pts).}
-(1)
-Prove that the dimension of the subspace of $2\times 2$ matrices
-$A$, such that the sum of the entries of every row is the same (say $c_1$)
-and the sum of entries of every column is the same (say $c_2$) is $2$.\\
+{\bf Problem B1 (50 pts).} \\
+\medskip
 (1)Let's define matrix A as : $\begin{pmatrix}
 a_{11} & a_{12} \\a_{21} & a_{22}
 \end{pmatrix}$ Then, we get: $a_{11} + a_{12} = c_1 = a_{21} + a_{22}$ and $a_{11} + a_{21} = c_2 = a_{12} + a_{22}$. We can rewrite the equations as:
@@ -50,8 +47,7 @@ a_{11} + a_{12} - a_{21} -a_{22} = 0
 a_{11} + a_{21} - a_{12} - a_{22} = 0
 \end{equation}
 From part d of the duality theorem (3.14), we know that $$dim(U) + dim(U^0) = dim(E)$$
-$dim(E)$ is $n^2$ or 4 and $dim(U)$ is $2(n-1)$ or 2 since there are two linearly indepedent equations. Then, $dim(U^0)$ is $4 - 2 = 2$.  
-
+$dim(E)$ is $n^2$ or 4 and $dim(U)$ is $2(n-1)$ or 2 since there are two linearly indepedent equations. Then, $dim(U^0)$ is $4 - 2 = 2$.  \\
 \medskip
 (2)
 Prove that the dimension of the subspace of $2\times 2$ matrices
@@ -205,12 +201,9 @@ $$
 
 
 \vspace {0.25cm}\noindent
-{\bf Problem B2 (10 pts).}
-If $A$ is an $n\times n$ symmetric matrix and $B$ is any 
-$n\times n$ invertible matrix, prove that $A$ is positive definite
-iff $\transpos{B} A B$ is positive definite.
-
-
+{\bf Problem B2 (10 pts).} \\
+Because $A$ is symmetric and positive definite then $\forall x \neq 0, \; x^\top (B^\top A B) x = (Bx)^\top A (Bx)$, since $B$ is invertible then $Bx \neq 0$, thus it comes $(Bx)^\top A (Bx) > 0$, which means $B^\top A B$ is also positive definite.\\
+Conversely, when $B^\top A B$ is positive definite, then it can be written as $B^\top A B = D D^\top \Rightarrow A = (B^\top)^{-1} D ((B^\top)^{-1} D )^\top$. Since $B$ is invertible then $ (B^\top)^{-1} D$ is also invertible  ,which means that $A$ is positive definite.
 
 \vspace {0.25cm}\noindent
 {\bf Problem B3 (100 pts).}
@@ -290,49 +283,171 @@ $\theta = \pi$) can be written as the composition of three
 shear transformations!
 
 \medskip
-(3)
-Recall that $E_{i, d}$ is  the diagonal matrix
-\[
-E_{i, d} = \mathrm{diag}(1,\ldots, 1, d, 1, \ldots,  1),
-\]
-whose diagonal entries are all $+1$, except the $(i, i)$th entry which
-is equal to $d$.
-
+(3)\\
 \medskip
-Given any $n\times n$ matrix $A$, for any pair $(i, j)$ of distinct
-row indices ($1 \leq i, j \leq n$), 
-prove that there exist two elementary matrices $E_1(i,j)$ and $E_2(i,j)$
-of the form $E_{k,\ell; \beta}$, 
-such that
-\[
-E_{j,-1} E_1(i,j)E_2(i,j)E_1(i,j) A = P(i, j) A,
-\]
-the matrix obtained from the matrix $A$ by permuting row $i$ and row $j$.
-Equivalently, we have
-\[
- E_1(i,j)E_2(i,j)E_1(i,j) A = E_{j,-1}P(i, j) A,
-\]
-the matrix obtained from $A$ by permuting row $i$ and row $j$ and
-multiplying row $j$ by $-1$.
-
+(a)
+Write $A = \begin{pmatrix}
+\alpha_1 \\
+\vdots \\
+\alpha_i \\
+\vdots \\
+\alpha_j \\
+\vdots \\
+\alpha_n
+\end{pmatrix}$, $E = \begin{pmatrix}
+e_1 \\
+\vdots \\
+e_i \\
+\vdots \\
+e_j \\
+\vdots \\
+e_n
+\end{pmatrix}$, where $e_i$ is the basis vector. \\
+Choose $E_1(i,j) = \begin{pmatrix}
+e_1 \\
+\vdots \\
+e_i \\
+\vdots \\
+e_j - e_i \\
+\vdots \\
+e_n
+\end{pmatrix}$, then $A_1 = E_1(i,j) A =  \begin{pmatrix}
+\alpha_1 \\
+\vdots \\
+\alpha_i \\
+\vdots \\
+\alpha_j - \alpha_i\\
+\vdots \\
+\alpha_n
+\end{pmatrix}$.
+Choose $E_2(i,j) = \begin{pmatrix}
+e_1 \\
+\vdots \\
+e_i + e_j\\
+\vdots \\
+e_j  \\
+\vdots \\
+e_n
+\end{pmatrix}$, then $A_2 = E_2(i,j) A_1 = \begin{pmatrix}
+\alpha_1 \\
+\vdots \\
+\alpha_j \\
+\vdots \\
+\alpha_j - \alpha_i\\
+\vdots \\
+\alpha_n
+\end{pmatrix}$. And 
+$A_3 = E_1(i,j) A_2 = \begin{pmatrix}
+\alpha_1 \\
+\vdots \\
+\alpha_j \\
+\vdots \\
+- \alpha_i\\
+\vdots \\
+\alpha_n
+\end{pmatrix}$,
+$A_4 = E_{j,-1} A_3 = \begin{pmatrix}
+\alpha_1 \\
+\vdots \\
+\alpha_j \\
+\vdots \\
+\alpha_i\\
+\vdots \\
+\alpha_n
+\end{pmatrix}$, thus $E_{j,-1} E_1(i,j)E_2(i,j)E_1(i,j) A = P(i, j) A$. \\
+Since $E_{j,-1} E_{j,-1} = I$, multiply $E_{j,-1}$ on both sides, we get $E_1(i,j)E_2(i,j)E_1(i,j) A = E_{j,-1}P(i, j) A$. \\
 \medskip
-Prove that for every $i = 2, \ldots, n$, there exist four elementary matrices
-$E_3(i,d), E_4(i,d)$, $E_5(i,d), E_6(i,d)$  of the form $E_{k,\ell; \beta}$, 
-such that
-\[
-E_6(i,d)E_5(i,d)E_4(i,d)E_3(i,d) E_{n,d} = E_{i, d}.
-\]
-
-What happens when $d = -1$, that is, what kind of simplifications occur?
-
-
+(b)
+Write $
+E_{n,d} = \begin{pmatrix}
+e_1 \\
+\vdots \\
+d e_n
+\end{pmatrix}
+$, choose $
+E_3(i,d) = \begin{pmatrix}
+e_1 \\
+\vdots \\
+e_i - \frac{1-d}{d^2} e_n \\
+\vdots \\
+e_n
+\end{pmatrix}
+$, $
+E_4(i,d) = \begin{pmatrix}
+e_1 \\
+\vdots \\
+e_i \\
+\vdots \\
+e_n - de_i
+\end{pmatrix}
+$, $
+E_5(i,d) = \begin{pmatrix}
+e_1 \\
+\vdots \\
+e_i + \frac{1-d}{d}e_n \\
+\vdots \\
+e_n 
+\end{pmatrix}
+$, $
+E_6(i,d) = \begin{pmatrix}
+e_1 \\
+\vdots \\
+e_i \\
+\vdots \\
+e_n + e_i
+\end{pmatrix}
+$. Then we can easily find that 
+\begin{align*}
+E_{n,d}^{(1)} &= E_3(i,d)E_{n,d} = \begin{pmatrix}
+e_1 \\
+\vdots \\
+e_i - \frac{1-d}{d}e_n\\
+\vdots \\
+de_n 
+\end{pmatrix} \\
+E_{n,d}^{(2)} &= E_4(i,d)E_{n,d}^{(1)} = \begin{pmatrix}
+e_1 \\
+\vdots \\
+e_i - \frac{1-d}{d}e_n\\
+\vdots \\
+-de_i + e_n 
+\end{pmatrix} \\
+E_{n,d}^{(3)} &= E_5(i,d)E_{n,d}^{(2)} = \begin{pmatrix}
+e_1 \\
+\vdots \\
+de_i \\
+\vdots \\
+-de_i + e_n 
+\end{pmatrix} \\
+E_{n,d}^{(4)} &= E_6(i,d)E_{n,d}^{(3)} = \begin{pmatrix}
+e_1 \\
+\vdots \\
+de_i \\
+\vdots \\
+e_n 
+\end{pmatrix} \\
+\end{align*}
+As a conclusion, $E_6(i,d)E_5(i,d)E_4(i,d)E_3(i,d) E_{n,d} = E_{i, d}$.\\
+When $d = -1$, $E_3(i,d) = E_5(i,d) \; E_4(i,d) = E_6(i,d)$. \\
 \medskip
-Prove that all permutation matrices can be written as products
-of elementary operations of the form  $E_{k,\ell; \beta}$ 
-and the operation $E_{n, -1}$.
+(c)
+We can see that all the permutation matrix can be written as $P = \sum_{i,j} P(i,j)$, and from above we prove that $P(i,j)$ can be written as the product of elementary operation of the form $E_{k,\ell; \beta}$ and 
+$E_{n, -1}$, such that $E_{j,-1} E_1(i,j)E_2(i,j)E_1(i,j) = P(i, j) $, so it is true for all permutation matrices.
 
 \medskip
 (4)
+First, we can use the Gaussion elimination, such that a series of elementary matrices $(\prod_{i} E_{k,\ell; \beta}^{i}) A = U$. Since $A$ is invertible, we get $\prod_i u_{ii} \neq 0$, use $E_{i, u_{ii}^{-1}}$ to $U$, then we can get an upper-triangle matrix whose diagonal entries (except the last row) are $1$, such that $(\prod_i E_{i, u_{ii}^{-1}})(\prod_{(i)} E_{k,\ell; \beta}^{i}) A = \begin{pmatrix}
+1 & a_{12} & \cdots & a_{1n} \\
+0 & 1 &\cdots & \vdots \\
+\vdots & \cdots & \cdots & \vdots \\ 
+0 & 0 & \cdots & a_{nn} \\ 
+\end{pmatrix}$. Then apply a series of operations to it to make $a_{ij} = 0, \forall j > i, i \neq n$, such that $SA = (\prod_{i} E_{k,\ell; \beta}^{*(i)})(\prod_i E_{i, u_{ii}^{-1}})(\prod_{(i)} E_{k,\ell; \beta}^{i}) A  = \begin{pmatrix}
+I_{n - 1} & 0 \\
+0 & d
+\end{pmatrix}$, since $\det(S) \det(A) = a_{nn} \Rightarrow d = \det(A)$.
+
+
+
 Prove that for every invertible $n\times n$ matrix $A$, there is
 a matrix $S$ such that
 \[
