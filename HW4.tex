@@ -259,17 +259,20 @@ So $A^{-1} = \begin{pmatrix}
 Indeed $S$ is the product of at most 4 elementary matrices as we find that:
 $$E_{12;\frac{-b}{d}}E_{22;(\frac{bc}{d} +a})E_{21;c}E_{11;\frac{ad - bc}{d}}S = I$$
 Then $$ S = E^{-1}_{12;\frac{-b}{d}}E^{-1}_{22;(\frac{bc}{d} +a})E^{-1}_{21;c}E^{-1}_{11;\frac{ad - bc}{d}}$$
+For $A = \begin{pmatrix}
+a & 0 \\ 0 & a^{-1}
+\end{pmatrix}$ the row operations to get the identity matrix are the following:\\
+1. $R_1/a \rightarrow R_1$\\
+2. $R_2/a^{-1} \rightarrow R_2 $\\
 
-\medskip
-For any $a\not= 0, 1$, give an explicit factorization as above for
-\[
-A = 
-\begin{pmatrix}
-a & 0 \\
-0 & a^{-1}
-\end{pmatrix}.
-\]
-What is this decomposition for $a = -1$?
+so $E_{22; a^{-1}} E_{11; a} A = I $ and 
+$A = E^{-1}_{11; a}E^{-1}_{22; a^{-1}}$.\\
+When $a = -1$, the decomposition becomes:
+$$\begin{pmatrix}
+-1 & 0 \\ 0 & 1
+\end{pmatrix}\begin{pmatrix}
+1 & 0 \\ 0 & -1
+\end{pmatrix} = A$$
 
 \medskip
 (2)
