@@ -282,6 +282,22 @@ Therefore, every plane rotation (except a flip about the origin when
 $\theta = \pi$) can be written as the composition of three
 shear transformations!
 
+$$R = \begin{pmatrix}
+1 & u \\ 0 & 1
+\end{pmatrix} \begin{pmatrix}
+1 & 0 \\ v & 1
+\end{pmatrix}\begin{pmatrix}
+1 & u \\ 0 & 1
+\end{pmatrix} = \begin{pmatrix}
+cos \theta & -sin \theta \\ sin \theta & cos \theta
+\end{pmatrix}$$
+$$ = \begin{pmatrix}
+uv +1 & 2u + u^2v \\ v & uv +1
+\end{pmatrix}= \begin{pmatrix}
+cos \theta & -sin \theta \\ sin \theta & cos \theta
+\end{pmatrix}$$
+So then it is clear that $v = sin\theta$ and $u = \frac{cos\theta - 1}{sin \theta} = -tan \frac{\theta}{2}$
+
 \medskip
 (3)\\
 \medskip
