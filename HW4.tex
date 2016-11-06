@@ -234,6 +234,32 @@ $\det(A) = +1$)  is the product of
 at most four elementary matrices
 of the form $E_{i, j; \beta}$.
 
+$$ S A A^{-1} = \begin{pmatrix}
+1 & 0 \\ 0 & ad - bc
+\end{pmatrix}A^{-1}$$
+$$ S = \begin{pmatrix}
+1 & 0 \\ 0 & ad - bc
+\end{pmatrix}A^{-1}$$
+To find $A^{-1}$, we use Gauss-Jordan elimination on $\begin{pmatrix}
+a & b \\ c & d
+\end{pmatrix}$.
+We perform the following row operations:\\
+1) $R_1/a \rightarrow R_1$\\
+2) $-cR_1 + R_2 \rightarrow R_2$\\
+3) $R_2/(d - \frac{cb}{a}) $\\
+4) $-\frac{b}{a}R_2 + R_1 \rightarrow R_1$\\ 
+So $A^{-1} = \begin{pmatrix}
+\frac{d}{ad - bc} & \frac{-b}{ad - bc}\\
+\frac{-c}{ad - bc} & \frac{a}{ad - bc}
+\end{pmatrix}$ and $S = \begin{pmatrix}
+\frac{d}{ad - bc} & \frac{-b}{ad - bc}\\
+-c & a
+\end{pmatrix}$
+\\ 
+Indeed $S$ is the product of at most 4 elementary matrices as we find that:
+$$E_{12;\frac{-b}{d}}E_{22;(\frac{bc}{d} +a})E_{21;c}E_{11;\frac{ad - bc}{d}}S = I$$
+Then $$ S = E^{-1}_{12;\frac{-b}{d}}E^{-1}_{22;(\frac{bc}{d} +a})E^{-1}_{21;c}E^{-1}_{11;\frac{ad - bc}{d}}$$
+
 \medskip
 For any $a\not= 0, 1$, give an explicit factorization as above for
 \[
