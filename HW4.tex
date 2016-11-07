@@ -541,7 +541,21 @@ E
 0 & 1 & 2 & 1 
 \end{pmatrix}.
 \]
+The lower triangular matrix E is:
+\[ \begin{pmatrix}
+1 & 0 & 0 & 0\\-1 & 1 & 0 & 0\\0 & -1 & 1 & 0\\0 & 0 & -1 & 1
+\end{pmatrix}\]
 
+We find E by observing that the row operations performed on matrix $Pa_3$ are (in the order listed below):\\
+1. $R_1 \rightarrow R_1$\\
+2. $-R_1 + R_2  \rightarrow R_2$\\
+3. $-R_1 + R_3  \rightarrow R_3$\\
+4. $-R_2 + R_3  \rightarrow R_3$\\
+5. $-R_1 + R_4  \rightarrow R_4$\\
+6. $-R_3 + R_4  \rightarrow R_4$\\
+7. $-R_2 + R_4  \rightarrow R_4$\\
+So we arrive at $E$ by multiplying the elementary matrices:
+$$E_{42;-1}E_{43;-1}E_{41;-1}E_{32;-1}E_{31;-1}E_{21;-1}$$
 \medskip
 (b)
 What is the effect of the product (on the left) with
@@ -558,11 +572,26 @@ Pa_3 =
 1 & 3 & 3 & 1
 \end{pmatrix}.
 \]
-
+The product of the elementary matrices (on the left) on $Pa_3$ is the identity matrix: 
+\[\begin{pmatrix}
+1&0 &0& 0\\0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\0 & 0 & 0 & 1
+\end{pmatrix}\]
 \medskip
 (c)
 Find the inverse of the matrix $Pa_3$.
+$$P^{-1}a_3Pa_3 = I$$
 
+Thus, we use the following Gauss-Jordan elimination process in the order listed on $Pa_3$ and the identity matrix side by side:\\
+1. Subtract $R_1$ from $R_2$, $R_3$ and $R_4$\\
+2. Subtract $2 R_2$ from $R_3$\\
+3. Subtract $3 R_2$ from $R_4$\\
+4. Subtract $3 R_3$ from $R_4$\\
+Then, $$P^{-1}a_3 = \begin{pmatrix}
+1 & 0 & 0 & 0\\-1 & 1 & 0 & 0 \\1 & -2 & 1 & 0\\1 & 3 & -3 & 1
+\end{pmatrix}$$ 
+Furthermore,the inverse is equal to the product of the elementary matrices $
+E_{4, 3; -1} E_{3, 2; -1} E_{4, 3; -1}\\ E_{2, 1; -1} E_{3, 2; -1} E_{4, 3; -1}
+$from part (b).
 \medskip
 (d)
 Consider the $(n+1)\times (n+1)$ Pascal matrix $Pa_{n}$
